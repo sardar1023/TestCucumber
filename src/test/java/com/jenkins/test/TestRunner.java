@@ -8,7 +8,7 @@ import cucumber.api.junit.Cucumber;
 @RunWith(Cucumber.class)
 @CucumberOptions(
 		plugin = {"pretty", "html:target/cucumber-html-report"},
-		features= {"C:/Users/saierdaer.yalikun/eclipse-workspace/test-jenkins/src/test/resources/feature/test.feature"},
+		features= {"/src/test/resources/feature/test.feature"},
 		glue = {"com.jenkins.test"}
 		)
 
