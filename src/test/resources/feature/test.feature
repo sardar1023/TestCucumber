@@ -1,6 +1,6 @@
 Feature: Google Search name
 @test
-  Scenario: Search Sardar's name
+  Scenario: Search Sardar name
     Given Open the Browser and come to google
     When Put my name into the search box
     Then click on the search button
