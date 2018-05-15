@@ -1,8 +1,5 @@
 package com.jenkins.test;
 
-import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
-
 import com.test.jenkins.impl.googleImpl;
 import com.test.jenkins.impl.wikiImpl;
 
