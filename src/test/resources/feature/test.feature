@@ -1,5 +1,5 @@
 Feature: Google Search name
-
+@test
   Scenario: Search Sardar's name
     Given Open the Browser and come to google
     When Put my name into the search box

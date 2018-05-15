@@ -9,7 +9,8 @@ import cucumber.api.junit.Cucumber;
 @CucumberOptions(
 		plugin = {"pretty", "html:target/cucumber-html-report"},
 		features= {"src/test/resources/feature/test.feature"},
-		glue = {"com.jenkins.test"}
+		glue = {"com.jenkins.test"},
+		tags = {"@test"}
 		)
 
 public class TestRunner {

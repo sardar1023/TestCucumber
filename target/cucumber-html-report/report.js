@@ -1,4 +1,4 @@
-$(document).ready(function() {var formatter = new CucumberHTML.DOMFormatter($('.cucumber-report'));formatter.uri("C:/Users/saierdaer.yalikun/eclipse-workspace/test-jenkins/src/test/resources/feature/test.feature");
+$(document).ready(function() {var formatter = new CucumberHTML.DOMFormatter($('.cucumber-report'));formatter.uri("src/test/resources/feature/test.feature");
 formatter.feature({
   "line": 1,
   "name": "Google Search name",
@@ -12,7 +12,13 @@ formatter.scenario({
   "description": "",
   "id": "google-search-name;search-sardar\u0027s-name",
   "type": "scenario",
-  "keyword": "Scenario"
+  "keyword": "Scenario",
+  "tags": [
+    {
+      "line": 2,
+      "name": "@test"
+    }
+  ]
 });
 formatter.step({
   "line": 4,
@@ -43,35 +49,35 @@ formatter.match({
   "location": "StepDefinition.open_the_Browser_and_come_to_google()"
 });
 formatter.result({
-  "duration": 5624297085,
+  "duration": 26099270967,
   "status": "passed"
 });
 formatter.match({
   "location": "StepDefinition.put_my_name_into_the_search_box()"
 });
 formatter.result({
-  "duration": 97559575,
+  "duration": 98508253,
   "status": "passed"
 });
 formatter.match({
   "location": "StepDefinition.click_on_the_search_button()"
 });
 formatter.result({
-  "duration": 1697927794,
+  "duration": 1855902612,
   "status": "passed"
 });
 formatter.match({
   "location": "StepDefinition.confirm_my_name_in_the_heading()"
 });
 formatter.result({
-  "duration": 1666125969,
+  "duration": 2153206909,
   "status": "passed"
 });
 formatter.match({
   "location": "StepDefinition.close_the_browser()"
 });
 formatter.result({
-  "duration": 4311636352,
+  "duration": 4389935501,
   "status": "passed"
 });
 });

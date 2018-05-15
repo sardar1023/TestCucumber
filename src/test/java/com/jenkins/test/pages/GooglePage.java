@@ -24,12 +24,12 @@ public class GooglePage extends BasePage {
 	
 	public GooglePage(WebDriver driver) {
 		super(driver);
-		PageFactory.initElements(getWebDriver(), this);
+		PageFactory.initElements(driver, this);
 	}
 	
 	public void openGoogle() {
 		String url = "https://www.google.com";
-		String path = "C:\\Users\\chromeDriver\\chromedriver.exe";
+		String path = "C:/Users/chromeDriver/chromedriver.exe";
 		System.setProperty("webdriver.chrome.driver", path);
 		driver = new ChromeDriver();
 		driver.get(url);

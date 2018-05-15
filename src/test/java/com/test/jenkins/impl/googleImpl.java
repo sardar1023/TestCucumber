@@ -2,16 +2,17 @@ package com.test.jenkins.impl;
 
 import org.openqa.selenium.WebDriver;
 
+import com.jenkins.test.pages.BasePage;
 import com.jenkins.test.pages.GooglePage;
 
 public class googleImpl {
 
-	private static final WebDriver driver = null;
+	//private static final WebDriver driver = null;
 	public GooglePage googlePage;
 
 	public GooglePage getGooglePage() {
 		if (googlePage == null) {
-			googlePage = new GooglePage(driver);
+			googlePage = new GooglePage(BasePage.driver);
 		}
 		return googlePage;
 	}
@@ -23,7 +24,8 @@ public class googleImpl {
 
 	public void insertGooglePage() {
 
-		getGooglePage().insertText("sardar");
+		String name = "sardar";
+		getGooglePage().insertText(name);
 
 	}
 
