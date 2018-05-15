@@ -1,7 +1,5 @@
 package com.jenkins.test;
 
-
-import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 
@@ -14,8 +12,6 @@ import cucumber.api.java.en.When;
 
 public class StepDefinition {
 
-	static WebDriver driver;
-	static WebElement element;
 
 	@Given("^Open the Browser and come to google$")
 	public void open_the_Browser_and_come_to_google() throws Throwable {
