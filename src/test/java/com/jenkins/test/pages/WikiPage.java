@@ -18,7 +18,7 @@ public class WikiPage extends BasePage {
 
 	public WikiPage(WebDriver driver) {
 		super(driver);
-		PageFactory.initElements(driver, this);
+		PageFactory.initElements(getWebDriver(), this);
 	}
 
 	public void clickOnLink() {
