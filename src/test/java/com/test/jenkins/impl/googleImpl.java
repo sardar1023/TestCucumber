@@ -1,7 +1,5 @@
 package com.test.jenkins.impl;
 
-import org.openqa.selenium.WebDriver;
-
 import com.jenkins.test.pages.BasePage;
 import com.jenkins.test.pages.GooglePage;
 
