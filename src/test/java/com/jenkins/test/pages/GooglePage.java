@@ -1,5 +1,6 @@
 package com.jenkins.test.pages;
 
+import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
@@ -10,7 +11,8 @@ import org.openqa.selenium.support.PageFactory;
 
 public class GooglePage extends BasePage {
 
-	public static final String gglSearchbar = "//input[@id ='lst-ib']";
+	//"//input[@id ='lst-ib']";
+	public static final String gglSearchbar = "//input[@name ='q']";
 	public static final String gglSearchBtn = "//input[@name ='btnK']";
 	
 
@@ -40,7 +42,8 @@ public class GooglePage extends BasePage {
 	}
 	
 	public void btnClick() {
-		searchBtn.click();
+		//searchBtn.click();
+		searchBar.sendKeys(Keys.ENTER);
 	}
 	
 	public void tearDown() {

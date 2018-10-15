@@ -7,7 +7,7 @@ import org.openqa.selenium.support.PageFactory;
 
 public class WikiPage extends BasePage {
 
-	public static final String wikiLink = "//a[text() = 'Sardar - Wikipedia']";
+	public static final String wikiLink = "//h3[.= 'Sardar - Wikipedia']";
 	public static final String heading = "//h1[@id= 'firstHeading' and @class='firstHeading']";
 
 	@FindBy(xpath = wikiLink)
@@ -22,6 +22,7 @@ public class WikiPage extends BasePage {
 	}
 
 	public void clickOnLink() {
+		if(wikLink.isDisplayed())
 		wikLink.click();
 	}
 
