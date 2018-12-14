@@ -150,9 +150,9 @@
 					</dependencies>
 					<configuration>
 						<skip>false</skip>
-						<!--<forkCount>2</forkCount> <reuseForks>false</reuseForks> -->
-						<threadCount>${thread.count}</threadCount>
-						<parallel>class</parallel>
+						<forkCount>2</forkCount>
+						<reuseForks>false</reuseForks>
+						<!--<threadCount>${thread.count}</threadCount> <parallel>class</parallel> -->
 						<includes>
 							<include>**/*Runner.java</include>
 						</includes>
