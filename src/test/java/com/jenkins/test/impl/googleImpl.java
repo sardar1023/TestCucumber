@@ -1,4 +1,4 @@
-package com.test.jenkins.impl;
+package com.jenkins.test.impl;
 
 import com.jenkins.test.pages.BasePage;
 import com.jenkins.test.pages.GooglePage;

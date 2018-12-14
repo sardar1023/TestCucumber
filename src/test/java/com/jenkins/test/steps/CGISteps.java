@@ -1,6 +1,6 @@
-package com.jenkins.test;
+package com.jenkins.test.steps;
 
-import com.test.jenkins.impl.CGIImpl;
+import com.jenkins.test.impl.CGIImpl;
 
 import cucumber.api.java.en.Given;
 import cucumber.api.java.en.Then;

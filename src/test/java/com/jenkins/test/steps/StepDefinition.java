@@ -1,7 +1,7 @@
-package com.jenkins.test;
+package com.jenkins.test.steps;
 
-import com.test.jenkins.impl.googleImpl;
-import com.test.jenkins.impl.wikiImpl;
+import com.jenkins.test.impl.googleImpl;
+import com.jenkins.test.impl.wikiImpl;
 
 import cucumber.api.java.en.Given;
 import cucumber.api.java.en.Then;
