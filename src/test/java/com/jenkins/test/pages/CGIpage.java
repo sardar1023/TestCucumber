@@ -8,8 +8,8 @@ import org.openqa.selenium.support.PageFactory;
 
 public class CGIpage extends BasePage {
 
-	public static final String contact = "//div[@class='content']/ul[@class='menu']/li[@class='first last leaf']/a";
-	public static final String headerText = "//h1[.='Contact us']";
+	public static final String contact = "//nav[@class='second-menu']/ul/li/a[.='About CGI']";
+	public static final String headerText = "//div[@class='title']/h2/a[.='CGI at a glance']";
 
 	public CGIpage(WebDriver driver) {
 		super(driver);

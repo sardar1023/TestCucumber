@@ -1,4 +1,4 @@
-package com.jenkins.test;
+package com.jenkins.test.runner;
 
 import org.junit.runner.RunWith;
 
@@ -7,13 +7,14 @@ import cucumber.api.junit.Cucumber;
 
 @RunWith(Cucumber.class)
 @CucumberOptions(
-		plugin = {"pretty", "html:target/cucumber-html-report"},
+		plugin = {"pretty", "html:target/cucumber-html-report",
+				"json:target/cucumber-reports/Cucumber.json"},
 		features= {"src/test/resources/feature/"},
 		glue = {"com.jenkins.test"},
-		tags = {"@test,@cgi"},
+		tags = {"@cgi"},
 		dryRun = false
 		)
 
-public class TestRunner {
+public class Test01Runner {
 
 }

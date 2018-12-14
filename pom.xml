@@ -75,7 +75,7 @@
 				</dependencies>
 				<configuration>
 					<skip>false</skip>
-					<forkCount>1</forkCount>
+					<forkCount>2</forkCount>
 					<reuseForks>false</reuseForks>
 					<includes>
 						<include>**/*Runner.java</include>
