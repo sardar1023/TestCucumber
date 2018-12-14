@@ -1,21 +1,30 @@
-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
 	<modelVersion>4.0.0</modelVersion>
 	<groupId>com.jenkins.test</groupId>
 	<artifactId>test-jenkins</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
 	<properties>
-		<maven.compiler.source>1.7</maven.compiler.source>
-		<maven.compiler.target>1.7</maven.compiler.target>
+		<applicationName>Jenkins-Test</applicationName>
+		<maven.compiler.source>1.8</maven.compiler.source>
+		<maven.compiler.target>1.8</maven.compiler.target>
+		<generated.test.source>
+			${project.build.directory}/generated-test-resource/com/jenkins/test
+		</generated.test.source>
+		<features.directory>
+			${project.build.directory}/feature
+		</features.directory>
+		<thread.count>2</thread.count>
 	</properties>
 
 	<dependencies>
 		<dependency>
-		    <groupId>junit</groupId>
-		    <artifactId>junit</artifactId>
-		    <version>4.12</version>
-		    <scope>test</scope>
-                </dependency>
+			<groupId>junit</groupId>
+			<artifactId>junit</artifactId>
+			<version>4.12</version>
+			<scope>test</scope>
+		</dependency>
 		<dependency>
 			<groupId>info.cukes</groupId>
 			<artifactId>cucumber-junit</artifactId>
@@ -52,38 +61,104 @@
 	</dependencies>
 
 	<build>
-		<plugins>
-			<plugin>
-				<groupId>org.apache.maven.plugins</groupId>
-				<artifactId>maven-compiler-plugin</artifactId>
-				<version>3.1</version>
-				<configuration>
-					<source>1.7</source>
-					<target>1.7</target>
-				</configuration>
-			</plugin>
-			<plugin>
-				<groupId>org.apache.maven.plugins</groupId>
-				<artifactId>maven-surefire-plugin</artifactId>
-				<version>2.21.0</version>
-				<dependencies>
-					<dependency>
-						<groupId>org.apache.maven.surefire</groupId>
-						<artifactId>surefire-junit47</artifactId>
-						<version>2.21.0</version>
-					</dependency>
-				</dependencies>
-				<configuration>
-					<skip>false</skip>
-					<forkCount>2</forkCount>
-					<reuseForks>false</reuseForks>
-					<includes>
-						<include>**/*Runner.java</include>
-					</includes>
-				</configuration>
-			</plugin>
-		</plugins>
+		<pluginManagement>
+			<plugins>
+				<plugin>
+					<groupId>org.codehaus.mojo</groupId>
+					<artifactId>build-helper-maven-plugin</artifactId>
+					<version>3.0.0</version>
+					<executions>
+						<execution>
+							<id>add-test-resource</id>
+							<goals>
+								<goal>add-test-resource</goal>
+							</goals>
+							<phase>process-test-resources</phase>
+							<configuration>
+								<sources>
+									<source>${generated.test.source}</source>
+								</sources>
+							</configuration>
+						</execution>
+					</executions>
+				</plugin>
+				<plugin>
+					<groupId>org.apache.maven.plugins</groupId>
+					<artifactId>maven-site-plugin</artifactId>
+					<version>3.6</version>
+				</plugin>
+				<plugin>
+					<groupId>org.codehaus.gmaven</groupId>
+					<artifactId>groovy-maven-plugin</artifactId>
+					<version>2.0</version>
+					<dependencies>
+						<dependency>
+							<groupId>org.codehaus.groovy</groupId>
+							<artifactId>groovy-all</artifactId>
+							<version>2.4.9</version>
+						</dependency>
+						<dependency>
+							<groupId>org.codehaus.groovy.modules.http-builder</groupId>
+							<artifactId>http-builder</artifactId>
+							<version>0.7.1</version>
+						</dependency>
+						<dependency>
+							<groupId>org.apache.ivy</groupId>
+							<artifactId>ivy</artifactId>
+							<version>2.4.0</version>
+						</dependency>
+					</dependencies>
+					<executions>
+						<execution>
+							<id>testrunners</id>
+							<phase>process-test-resources</phase>
+							<goals>
+								<goal>execute</goal>
+							</goals>
+							<configuration>
+								<properties>
+									<runner.template>
+										${project.build.testResources[0].directory/TestRunner.java.template
+									</runner.template>
+									<generated.source.directory>${generated.test.resources}</generated.source.directory>
+									<feature.folder>${features.directory}</feature.folder>
+								</properties>
+								<source>${project.build.testResources[0].directory/groovy/testrunner.groovy}</source>
+							</configuration>
+						</execution>
+					</executions>
+				</plugin>
+				<plugin>
+					<groupId>org.apache.maven.plugins</groupId>
+					<artifactId>maven-compiler-plugin</artifactId>
+					<version>3.1</version>
+					<configuration>
+						<source>1.8</source>
+						<target>1.8</target>
+					</configuration>
+				</plugin>
+				<plugin>
+					<groupId>org.apache.maven.plugins</groupId>
+					<artifactId>maven-surefire-plugin</artifactId>
+					<version>2.21.0</version>
+					<dependencies>
+						<dependency>
+							<groupId>org.apache.maven.surefire</groupId>
+							<artifactId>surefire-junit47</artifactId>
+							<version>2.21.0</version>
+						</dependency>
+					</dependencies>
+					<configuration>
+						<skip>false</skip>
+						<!--<forkCount>2</forkCount> <reuseForks>false</reuseForks> -->
+						<threadCount>${thread.count}</threadCount>
+						<parallel>class</parallel>
+						<includes>
+							<include>**/*Runner.java</include>
+						</includes>
+					</configuration>
+				</plugin>
+			</plugins>
+		</pluginManagement>
 	</build>
-
-
 </project>
