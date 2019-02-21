@@ -1,0 +1,37 @@
+pipeline {
+	agent testAuto
+	
+	stages {
+		stage ('Test1 Stage'){
+		
+		steps {
+		
+			withMaven(maven: '3.5.3'){
+				sh 'mvn clean test'
+			}
+		  }
+		}
+	
+		stage ('Test2 Stage'){
+			steps {
+		
+				withMaven(maven: '3.5.3'){
+					sh 'mvn test'
+				}
+		  	}
+		
+		}
+		
+		stage ('Test3 Stage'){
+			steps {
+		
+				withMaven(maven: '3.5.3'){
+					sh 'mvn test'
+				}
+		  	}
+		
+		}
+	
+	}
+
+}
