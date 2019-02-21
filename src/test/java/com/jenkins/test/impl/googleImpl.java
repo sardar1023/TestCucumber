@@ -3,6 +3,8 @@ package com.jenkins.test.impl;
 import com.jenkins.test.pages.BasePage;
 import com.jenkins.test.pages.GooglePage;
 
+import java.io.IOException;
+
 public class googleImpl {
 
 	//private static final WebDriver driver = null;
@@ -15,7 +17,7 @@ public class googleImpl {
 		return googlePage;
 	}
 
-	public void openGoogle() {
+	public void openGoogle(){
 	
 		getGooglePage().openGoogle();
 	}

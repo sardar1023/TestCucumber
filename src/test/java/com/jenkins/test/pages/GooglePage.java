@@ -1,5 +1,6 @@
 package com.jenkins.test.pages;
 
+import com.jekins.test.lib.PropReader;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -8,13 +9,16 @@ import org.openqa.selenium.support.CacheLookup;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 
+import java.io.IOException;
+
 
 public class GooglePage extends BasePage {
 
 	//"//input[@id ='lst-ib']";
 	public static final String gglSearchbar = "//input[@name ='q']";
 	public static final String gglSearchBtn = "//input[@name ='btnK']";
-	
+
+	PropReader prop = new PropReader();
 
 	@CacheLookup
 	@FindBy(xpath= gglSearchbar)
@@ -30,9 +34,17 @@ public class GooglePage extends BasePage {
 	}
 	
 	public void openGoogle() {
-		String url = "https://www.google.com";
-		String path = "C:/Users/chromeDriver/chromedriver.exe";
-		System.setProperty("webdriver.chrome.driver", path);
+		String url = null;
+		String path = null;
+		String chrome = null;
+		try {
+			url = prop.getValues().get("url").toString();
+			path = prop.getValues().get("path").toString();
+			chrome = prop.getValues().get("chrome").toString();
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+		System.setProperty(chrome, path);
 		driver = new ChromeDriver();
 		driver.get(url);
 	}
