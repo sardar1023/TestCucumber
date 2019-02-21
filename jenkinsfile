@@ -5,24 +5,27 @@ pipeline {
 	}
 	stages {
 		stage ('Test1 Stage'){
-			def mvn_version = 'M3'		
-            withEnv( ["PATH+MAVEN=${tool mvn_version}/bin"] ) {
+			steps{		
+            withEnv( ["PATH+MAVEN=M3/bin"] ) {
             sh 'mvn clean test'
             }
           }
+          }
 	
 		stage ('Test2 Stage'){
-		   def mvn_version = 'M3'	
-            withEnv( ["PATH+MAVEN=${tool mvn_version}/bin"] ) {
+		steps{
+            withEnv( ["PATH+MAVEN=M3/bin"] ) {
             sh 'mvn clean test'
+            }
             }
 		}
 		
 		stage ('Test3 Stage'){
-		    def mvn_version = 'M3'	
-                withEnv( ["PATH+MAVEN=${tool mvn_version}/bin"] ) {
+			steps{	
+                withEnv( ["PATH+MAVEN=M3/bin"] ) {
                 sh 'mvn clean test'
               	}
+		    }
 		    }
 	
 	}
