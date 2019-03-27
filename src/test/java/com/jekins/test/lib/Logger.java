@@ -1,27 +1,27 @@
 package com.jekins.test.lib;
 
 import cucumber.api.Scenario;
+import cucumber.api.java.After;
+import cucumber.api.java.Before;
+import org.openqa.selenium.WebDriver;
+
 
 public class Logger {
 
-    public static ThreadLocal<Scenario> scenario = new ThreadLocal<Scenario>();
+    public static ThreadLocal<Scenario> senarioList = new ThreadLocal<Scenario>();
 
-    public static String getScenarioName(){
-        String scenarioName = "";
-        if(scenario.get() !=null){
-            scenarioName = scenario.get().getName();
-        }
-        return scenarioName;
+
+    @Before
+    public static void begin(Scenario scenario){
+
+
     }
 
-    public static String getScenarioUniqueID(){
-        String scenarioID = "";
-        if(scenario.get() != null){
-            scenarioID = scenario.get().getId();
-            scenarioID = scenarioID.replaceAll("[^a-zA-Z0-9.-]]","_");
-        }
-        return scenarioID;
-    }
+    public static byte[] getScreenShot(){
+    byte[] screenshot= null;
 
+    //WebDriver driver = WebDriverUtils
 
+    return screenshot;
+}
 }

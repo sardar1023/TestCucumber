@@ -8,7 +8,7 @@ public class WebDriverUtils {
 
 	WebDriver driver;
 	
-	public void Setup(String browser) throws Exception {
+	public void getWebDriver(String browser) throws Exception {
 		if (browser.equalsIgnoreCase("firefox")) {
 			String path = null;
 			System.setProperty("webdriver.gecko.driver", path);
