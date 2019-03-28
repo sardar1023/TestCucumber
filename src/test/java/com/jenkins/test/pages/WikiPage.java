@@ -1,5 +1,6 @@
 package com.jenkins.test.pages;
 
+import com.jekins.test.lib.CucumberLogger;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
@@ -24,13 +25,18 @@ public class WikiPage extends BasePage {
 	public void clickOnLink() {
 		if(wikLink.isDisplayed())
 		wikLink.click();
+		CucumberLogger.logPass("Button showed up");
+
+
 	}
 
 	public void verifyTitle() {
 		if (heding.isDisplayed() && heding.getText().equalsIgnoreCase("Sardar")) {
 			System.out.println("header is right");
+			CucumberLogger.logPass("header is right");
 		} else {
 			System.out.println("header is not right");
+			CucumberLogger.logFail("header is not right");
 		}
 	}
 }

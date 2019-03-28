@@ -1,5 +1,6 @@
 package com.jenkins.test.pages;
 
+import com.jekins.test.lib.CucumberLogger;
 import org.openqa.selenium.*;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.support.PageFactory;
@@ -27,6 +28,7 @@ public class CGIpage extends BasePage {
         WebElement link = driver.findElement(By.xpath(contact));
         if (link.isDisplayed())
             link.click();
+        CucumberLogger.logPass("link showed up");
     }
 
     /**get header text*/
@@ -34,6 +36,7 @@ public class CGIpage extends BasePage {
         WebElement text = driver.findElement(By.xpath(headerText));
         if (text.isDisplayed())
             System.out.println(text.getText());
+        CucumberLogger.logPass(text.getText());
     }
 
     /**Screenshot function*/
