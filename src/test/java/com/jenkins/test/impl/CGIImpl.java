@@ -13,16 +13,21 @@ public class CGIImpl {
 		}
 		return cgiPage;
 	}
-	
+
+	/**Open the browser */
 	public void openCGI() {
 		getCGIPage().openCGI();
 	}
-	
+	/**Click on the target link*/
 	public void clickContactLink() {
 		getCGIPage().clickContactLink();
 	}
-	
+	/**Get text in the header*/
 	public void getHeaderText() {
 		getCGIPage().getHeaderText();
+	}
+	/**Take screenshot*/
+	public byte[] getScreenShot(){
+		return getCGIPage().getScreenShot();
 	}
 }
