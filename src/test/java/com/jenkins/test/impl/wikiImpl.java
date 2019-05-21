@@ -22,4 +22,8 @@ public class wikiImpl {
 	public void verifyTheHeading() {
 		getWikiPage().verifyTitle();
 	}
+
+	public boolean rubyHeader(){
+		return getWikiPage().rubyHeader();
+	}
 }

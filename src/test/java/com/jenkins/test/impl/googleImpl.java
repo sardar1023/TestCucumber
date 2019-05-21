@@ -38,4 +38,12 @@ public class googleImpl {
 
 		getGooglePage().tearDown();
 	}
+
+	public void inserToField(String name){
+		getGooglePage().insertToField(name);
+	}
+
+	public void clickOnLinkWithText(String linkText){
+		getGooglePage().clickRubyLink(linkText);
+	}
 }

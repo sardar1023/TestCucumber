@@ -11,7 +11,7 @@ import cucumber.api.junit.Cucumber;
 				"json:target/cucumber-reports/Cucumber.json"},
 		features= {"src/test/resources/feature/"},
 		glue = {"com.jenkins.test"},
-		tags = {"@test"},
+		tags = {"@sardar"},
 		dryRun = false
 		)
 
